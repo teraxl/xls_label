@@ -8,14 +8,17 @@
 # Copyright:   (c) СашаНастя 2019
 # Licence:     <your licence>
 # -------------------------------------------------------------------------------
+from openpyxl.worksheet.worksheet import Worksheet
+
 from xlFile import xlLabel
 import os
-from openpyxl import load_workbook
-from openpyxl import workbook, worksheet
+from openpyxl import load_workbook, Workbook
 
 def mains():
-    wb = workbook.Workbook()
+    wb = Workbook(write_only=False)
     ws = wb.active
+    ws.title = 'Fuck'
+
 
     ws.cell(1, 1).value = 10
 

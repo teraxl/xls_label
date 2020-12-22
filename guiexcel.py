@@ -20,7 +20,9 @@ class Ui_Form(object):
         self.lineEdit = QLineEdit(Form)
         self.lineEdit.setGeometry(QtCore.QRect(10, 10, 281, 200))
         self.lineEdit.setMaximumSize(QtCore.QSize(281, 200))
-        font = QtGui.QFont()
+        QtGui.QFontDatabase.addApplicationFont("fonts/NovaFlat-Regular.ttf")
+        font = QtGui.QFont("Nova Flat")
+        # font.setBold(True)
         font.setPointSize(48)
         self.lineEdit.setFont(font)
         self.lineEdit.setText("")
@@ -31,9 +33,30 @@ class Ui_Form(object):
         self.lineEdit.setMaxLength(6);
         self.lineEdit.setObjectName("lineEdit")
         self.lineEdit.setValidator(QIntValidator(0, 999999, Form))
+        self.lineEdit.setStyleSheet(
+            "QLineEdit {"
+            "color: darkslategrey;"
+            "background-color: #e1e2e3;"
+            "border: 4px solid grey;"
+            "border-radius: 5px;"
+            "border-width:2px;"
+            "}"
+        )
+
         self.pushButton = QPushButton(Form)
         self.pushButton.setGeometry(QtCore.QRect(10, 230, 281, 51))
         self.pushButton.setObjectName("pushButton")
-        self.pushButton.setText("Сгенерировать xls файл")
+        font.setPointSize(15)
+        self.pushButton.setFont(font)
+        self.pushButton.setText("СГЕНЕРИРОВАТЬ ФАЙЛ")
+        self.pushButton.setStyleSheet(
+            "QPushButton {"
+            "color: darkslategrey;"
+            "background-color: #05B8CC;"
+            "border: 2px solid grey;"
+            "border-radius: 5px;"
+            "border-width:2px;"
+            "}"
+        )
         Form.setWindowTitle("Наклейки")
         QtCore.QMetaObject.connectSlotsByName(Form)

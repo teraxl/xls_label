@@ -2,8 +2,9 @@
 # coding=utf-8
 
 from PyQt5 import QtWidgets
+from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QMessageBox
-from PyQt5.QtCore import QDir
+from PyQt5.QtCore import QDir, Qt
 from guiexcel import Ui_Form
 import sys
 import os
@@ -26,7 +27,7 @@ class MyWidget(QtWidgets.QWidget):
     def btnClicked(self):
         xl = xlLabel()
         xl.getValue(self.ui.lineEdit.text())
-        dir_name = QDir.currentPath()
+        dir_name = QDir.homePath() + '/Desktop'
         message = "Файл был создан в данной директории:"
         if os.name in mOS:
             _SLASH_ = "/"
@@ -41,6 +42,11 @@ class MyWidget(QtWidgets.QWidget):
 if __name__ == "__main__":
     app = QtWidgets.QApplication([])
     application = MyWidget()
+    application.setWindowFlags(Qt.Window |
+                               Qt.WindowMinimizeButtonHint |
+                               Qt.WindowCloseButtonHint)
+    application.setFixedSize(application.size())
+    application.setWindowIcon(QIcon("image/Label.ico"))
     application.show()
 
     sys.exit(app.exec())
