@@ -11,15 +11,16 @@
 from xlFile import xlLabel
 import os
 from openpyxl import load_workbook
+from openpyxl import workbook, worksheet
 
-
-def main():
-    wb = load_workbook(filename='наклейки.xlsx', read_only=False, data_only=True)
+def mains():
+    wb = workbook.Workbook()
     ws = wb.active
-    print(ws.column_dimensions['A'].width)
-    print(ws.row_dimensions[1].height)
-    print(ws.page_setup)
+
+    ws.cell(1, 1).value = 10
+
+    wb.save("my.xlsx")
 
 
 if __name__ == '__main__':
-    main()
+    mains()

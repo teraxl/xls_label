@@ -1,4 +1,4 @@
-#!/usr/bin/python3w
+#!/usr/bin/python
 # coding=utf-8
 
 from PyQt5 import QtWidgets
@@ -9,7 +9,7 @@ import sys
 import os
 from xlFile import xlLabel
 
-file = "test2.xlsx"
+file = "Наклейки.xlsx"
 
 mOS = ['nt', 'posix']
 slash = ''
@@ -37,19 +37,10 @@ class MyWidget(QtWidgets.QWidget):
         msg = QMessageBox(QMessageBox.Warning, "Файл создан", str_all, QMessageBox.Ok | QMessageBox.Cancel)
         msg.exec()
 
-"""
-        m = msg.exec()
 
-        if m == QMessageBox.Ok:
-           mmm = QMessageBox(QMessageBox.Warning, "Ok", "OKOKO", QMessageBox.Ok)
-           mmm.exec()
-        if m == QMessageBox.Cancel:
-           mmm = QMessageBox(QMessageBox.Warning, "Cancel", "OKOKO", QMessageBox.Ok)
-           mmm.exec()
-"""
+if __name__ == "__main__":
+    app = QtWidgets.QApplication([])
+    application = MyWidget()
+    application.show()
 
-app = QtWidgets.QApplication([])
-application = MyWidget()
-application.show()
-
-sys.exit(app.exec())
+    sys.exit(app.exec())

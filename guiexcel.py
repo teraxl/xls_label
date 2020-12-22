@@ -35,5 +35,5 @@ class Ui_Form(object):
         self.pushButton.setGeometry(QtCore.QRect(10, 230, 281, 51))
         self.pushButton.setObjectName("pushButton")
         self.pushButton.setText("Сгенерировать xls файл")
-        Form.setWindowTitle("Label")
+        Form.setWindowTitle("Наклейки")
         QtCore.QMetaObject.connectSlotsByName(Form)
